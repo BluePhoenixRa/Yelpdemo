@@ -14,3 +14,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'spring', group: :development
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
