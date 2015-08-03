@@ -1,13 +1,14 @@
 <div class="row">
     <div class="col-md-3">
-        <%= image_tag @restaurant.image_url %>
-        
-        <h2>
-          <%= @restaurant.name %>
-        </h2>
-        
-        <div class="star-rating" data-score= <%= @avg_rating %> > </div>
-        <p><%= "#{@reviews.length} reviews" %></p>
+        <div class="makeCenter">
+            <%= image_tag @restaurant.image_url %>
+            <h2>
+              <%= @restaurant.name %>
+            </h2>
+
+            <div class="star-rating" data-score= <%= @avg_rating %> > </div>
+            <p><%= "#{@reviews.length} reviews" %></p>
+        </div>
         <p>
           <strong>Address:</strong>
           <%= @restaurant.address %>
@@ -23,17 +24,22 @@
             <%= link_to @restaurant.website, @restaurant.website %>
         </p>
         
-        <p>
-        <iframe
-          width="300"
-          height="250"
-          frameborder="0" style="border:0"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM-wDAOAJ0oIf4SmNHbRoPLBysufPQVp8
-               &q=<%= @restaurant.address.parameterize %>">
-        </iframe>
-        </p>
+        <div class="makeCenter">
+            <p>
+            <iframe
+              width="300"
+              height="250"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM-wDAOAJ0oIf4SmNHbRoPLBysufPQVp8
+                   &q=<%= @restaurant.address.parameterize %>">
+            </iframe>
+            </p>
         
-        <%= link_to 'Write A Review', new_restaurant_review_path(@restaurant), class: "btn btn-info" %><br />
+            <p><%= link_to 'Write A Review', new_restaurant_review_path(@restaurant), class: "makeCenter btn btn-info"  %></p>
+            <% if current_user.admin? %>
+                <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: "btn btn-danger" %>
+            <% end %>
+        </div>
     </div>
     
     <div class="col-md-9">
@@ -76,9 +82,6 @@
         <% end %>
     </div>
 </div>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
-<%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
 
 <script>
     $('.star-rating').raty({
