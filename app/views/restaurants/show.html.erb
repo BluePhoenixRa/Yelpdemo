@@ -22,7 +22,17 @@
           <strong>Website:</strong>
             <%= link_to @restaurant.website, @restaurant.website %>
         </p>
-
+        
+        <p>
+        <iframe
+          width="300"
+          height="250"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBM-wDAOAJ0oIf4SmNHbRoPLBysufPQVp8
+               &q=<%= @restaurant.address.parameterize %>">
+        </iframe>
+        </p>
+        
         <%= link_to 'Write A Review', new_restaurant_review_path(@restaurant), class: "btn btn-info" %><br />
     </div>
     
