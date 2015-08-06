@@ -6,6 +6,6 @@ The app can be seen live at: http://ra-yelp.herokuapp.com/
 
 Make yourself an account and have at it!
 
-Known issues (that I'm still working on):
+Known issues/things I'm working onthat I'm still working on:
 - Search does not work on production environment, but works fully on localhost
-- No Admin panel
+- Needs Admin panel
